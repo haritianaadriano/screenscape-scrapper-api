@@ -7,7 +7,7 @@ app = FastAPI()
 @app.get("/movie/trending")
 def trending_movie():
     # URL of the API
-    url = 'https://www.reccio.com/api/recommend?genre=&movieType=trendingNow&keyword=&services=netflix,disney,hulu,prime,hbo&country=nz'
+    url = 'https://www.reccio.com/api/recommend?genre=&movieType=trendingNow&keyword=&services=netflix,disney,hulu,prime,hbo&country=us'
     
     # Headers
     headers = {
