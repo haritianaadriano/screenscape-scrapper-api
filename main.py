@@ -24,3 +24,8 @@ def trending_movie():
     else:
         # Return an error message if the external API fails
         return JSONResponse(content={"error": "Failed to fetch data"}, status_code=response.status_code)
+
+
+@app.get("/ping")
+def get_server_health():
+    return "pong"
