@@ -17,6 +17,10 @@ def get_movies(type: str):
         enum_as_number = 16
     if type == "romance":
         enum_as_number = 10749
+    if type == "thriller":
+        enum_as_number = 53
+    if type == "action":
+        enum_as_number = 28
 
     url = 'https://www.reccio.com/api/recommend?genre='+str(enum_as_number)+'&movieType=bestOfRecentYears&keyword=&services=netflix,disney,hulu,prime,hbo,apple&country=us'
 
