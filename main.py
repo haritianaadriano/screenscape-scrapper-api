@@ -5,24 +5,8 @@ from fastapi.responses import JSONResponse
 app = FastAPI()
 
 @app.get("/movies")
-def get_movies(type: str):
-    enum_as_number = 0
-    if type == "comedie":
-        enum_as_number = 35
-    if type == "horror":
-        enum_as_number = 27
-    if type == "family":
-        enum_as_number = 10751
-    if type == "animation":
-        enum_as_number = 16
-    if type == "romance":
-        enum_as_number = 10749
-    if type == "thriller":
-        enum_as_number = 53
-    if type == "action":
-        enum_as_number = 28
-
-    url = "https://imdb236.p.rapidapi.com/imdb/lowest-rated-movies"
+def get_movies():
+    url = "https://imdb236.p.rapidapi.com/imdb/top250-movies"
 
     headers = {
         'x-rapidapi-key': "71b2e05dbamsh0a26810352c0cdep1c8a58jsn19bd02ce5cdc",
