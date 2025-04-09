@@ -9,8 +9,8 @@ def get_movies():
     url = "https://imdb236.p.rapidapi.com/imdb/top250-movies"
 
     headers = {
-        'x-rapidapi-key': "71b2e05dbamsh0a26810352c0cdep1c8a58jsn19bd02ce5cdc",
-        'x-rapidapi-host': "imdb236.p.rapidapi.com"
+	    "x-rapidapi-key": "71b2e05dbamsh0a26810352c0cdep1c8a58jsn19bd02ce5cdc",
+	    "x-rapidapi-host": "imdb236.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers)
