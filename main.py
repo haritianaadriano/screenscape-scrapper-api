@@ -22,10 +22,11 @@ def get_movies(type: str):
     if type == "action":
         enum_as_number = 28
 
-    url = 'https://www.reccio.com/api/recommend?genre='+str(enum_as_number)+'&movieType=bestOfRecentYears&keyword=&services=netflix,disney,hulu,prime,hbo,apple&country=us'
+    url = "https://imdb236.p.rapidapi.com/imdb/lowest-rated-movies"
 
     headers = {
-        'host': 'www.reccio.com'  # The host should not include the protocol (htps://)
+        'x-rapidapi-key': "71b2e05dbamsh0a26810352c0cdep1c8a58jsn19bd02ce5cdc",
+        'x-rapidapi-host': "imdb236.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers)
@@ -37,29 +38,6 @@ def get_movies(type: str):
     else:
         # Return an error message if the external API fails
         return JSONResponse(content={"error": "Failed to fetch data"}, status_code=response.status_code)
-
-
-@app.get("/movie/trending")
-def trending_movie():
-    # URL of the API
-    url = 'https://www.reccio.com/api/recommend?genre=&movieType=trendingNow&keyword=&services=netflix,disney,hulu,prime,hbo,apple&country=us'
-    
-    # Headers
-    headers = {
-        'host': 'www.reccio.com'  # The host should not include the protocol (htps://)
-    }
-    
-    # Make the external API request
-    response = requests.get(url, headers=headers)
-    
-    # Check if the external API call was successful
-    if response.status_code == 200:
-        # Return the JSON data from the external API
-        return JSONResponse(content=response.json())
-    else:
-        # Return an error message if the external API fails
-        return JSONResponse(content={"error": "Failed to fetch data"}, status_code=response.status_code)
-
 
 @app.get("/ping")
 def get_server_health():
