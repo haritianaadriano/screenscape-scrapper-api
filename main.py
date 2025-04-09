@@ -2,19 +2,18 @@ import requests
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-app = FastAPI()
+app = FastAPI()  
 
 @app.get("/movies")
 def get_movies():
-    url = "https://streaming-availability.p.rapidapi.com/shows/%7Bid%7D"
+    url = "https://imdb232.p.rapidapi.com/api/title/get-most-popular"
 
-    querystring = {"series_granularity":"episode","output_language":"en"}
+    querystring = {"limit":"20","topMeterTitlesType":"ALL"}
 
     headers = {
         "x-rapidapi-key": "71b2e05dbamsh0a26810352c0cdep1c8a58jsn19bd02ce5cdc",
-        "x-rapidapi-host": "streaming-availability.p.rapidapi.com"
+        "x-rapidapi-host": "imdb232.p.rapidapi.com"
     }
-
 
     response = requests.get(url, headers=headers, params=querystring)
     
